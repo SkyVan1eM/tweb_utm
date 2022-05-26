@@ -1,4 +1,6 @@
-import {types} from "mobx-state-tree";
+import {getParentOfType, types} from "mobx-state-tree";
+import rootStoreStore from "../Stores/RootStore.store";
+import RootStore from "../Stores/RootStore.store";
 
 export const  ContentModel = types.model('ContentModel',{
     id:types.identifier,
@@ -11,7 +13,7 @@ export const  ContentModel = types.model('ContentModel',{
         get isSeen(){
             return self.seen
         },
-        FindInTitle(param:any){
+        FindInTitle(param:string){
             self.title.includes(param)
         }
     }))
@@ -21,5 +23,16 @@ export const  ContentModel = types.model('ContentModel',{
         },
         changeSeen(state:boolean){
             self.seen =state
+        },
+        changeValue<Key extends keyof typeof self>(field: Key, value: typeof self[Key]): void {
+            self[field]= value
+        },
+        addNoteValue(){
+            const rootStore=getParentOfType(self,RootStore)
+            rootStore.addNote(self.id)
+        },
+        removeNote(){
+            const rootStore =getParentOfType(self,RootStore)
+            rootStore.removeNote(self.id)
         }
     }))
