@@ -1,7 +1,5 @@
-import {Form, Input, Button, Menu} from 'antd';
-import {useEffect, useState} from "react";
-import {integer} from "mobx-state-tree/dist/types/primitives";
-import {FastBackwardOutlined} from "@ant-design/icons";
+import {Form, Input, Button} from 'antd';
+import {useState} from "react";
 export const FormLayout =() =>{
 
     const[username,setusername]=useState('')
@@ -10,15 +8,9 @@ export const FormLayout =() =>{
 
     const[i,seti]=useState('')
     const ShowResult =()=>{
-        // alert("User_Name:"+username+"\n"+"Email:"+email+"\n"+"Phone:"+phone)
-        // console.log("User_Name:"+username+"\n"+"Email:"+email+"\n"+"Phone:"+phone)
-        alert('Input:'+i)
+        alert("User_Name: "+username+"\nEmail: "+email+"\nPhone: "+phone+"\nInput: "+i)
+        // console.log("User_Name: "+username+"\nEmail: "+email+"\nPhone: "+phone+"\nInput: "+i)
     }
-
-    useEffect(() =>{
-
-        },[]
-    )
 
     return(
 

@@ -20,7 +20,7 @@ export const storeProvider=RootStore.create({
             title: "Card title 3",
             description: "description",
             seen: false,
-            notite: '',
+            notite: 'Default',
         },
         {
             id: '4',
@@ -40,8 +40,8 @@ export const storeProvider=RootStore.create({
             id: '6',
             title: "Card title 6",
             description: "description",
-            seen: true,
-            notite: 'Prima notita',
+            seen: false,
+            notite: '',
         },
     ]
 })
