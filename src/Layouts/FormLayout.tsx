@@ -1,16 +1,21 @@
-import {Form, Input, Button} from 'antd';
-import {useState} from "react";
+import {Form, Input, Button, Menu} from 'antd';
+import {useEffect, useState} from "react";
+import {integer} from "mobx-state-tree/dist/types/primitives";
+import {FastBackwardOutlined} from "@ant-design/icons";
 export const FormLayout =() =>{
 
     const[username,setusername]=useState('')
     const[email,setemail]=useState('')
     const[phone,setPhone]=useState('')
-
     const[i,seti]=useState('')
     const ShowResult =()=>{
-        alert("User_Name: "+username+"\nEmail: "+email+"\nPhone: "+phone+"\nInput: "+i)
-        // console.log("User_Name: "+username+"\nEmail: "+email+"\nPhone: "+phone+"\nInput: "+i)
+        alert('Input:'+i)
     }
+
+    useEffect(() =>{
+
+        },[]
+    )
 
     return(
 
@@ -22,18 +27,21 @@ export const FormLayout =() =>{
             wrapperCol={{ flex: 1 }}
             colon={false}
         >
+
             <Form.Item style={{paddingLeft:'500px'}}
                        label="Username" name="username" rules={[{ required: true }]}>
                 <Input value={username} onChange={(e )=> setusername(e.target.value)}
                        style={{ width: '40%'}}
                 />
             </Form.Item>
+
             <Form.Item style={{paddingLeft:'500px'}}
                        label="Email" name="Email" rules={[{ required: true }]}>
                 <Input value={email}  onChange={(e )=> setemail(e.target.value)}
                        style={{ width: '40%'}}
                 />
             </Form.Item>
+
             <Form.Item style={{paddingLeft:'500px'}}
                        label="Phone"  name="Phone"   rules={[{ required: true }]}>
                 <Input  type="number" value={phone} onChange={(e )=> setPhone(e.target.value)}
@@ -54,7 +62,11 @@ export const FormLayout =() =>{
                         onClick={ShowResult}  type="primary" htmlType="submit">
                     Submit
                 </Button>
+
             </Form.Item>
         </Form>
     )
 }
+
+
+
